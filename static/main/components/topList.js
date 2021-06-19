@@ -1,8 +1,11 @@
 Vue.component('top-list', {
   props: ['participants', 'interruptions'],
   template: `
-    <table>
+    <table class="top-list">
       <thead>
+        <tr>
+          <th colspan=4>Interruption Scoreboard</th>
+        </tr>
         <tr>
           <th>Name</th>
           <th>Interrupted</th>
@@ -27,11 +30,11 @@ Vue.component('top-list', {
         let interruptions = this.interruptions.reduce((a, b) => a + (b.to === x), 0);
         return {
           name: x,
-          interruptions: interruptions,
-          interrupted: interrupted,
-          net: interruptions - interrupted,
+          interruptions: interruptions || null,
+          interrupted: interrupted || null,
+          net: interruptions - interrupted || null,
         };
-      }.bind(this));
+      }.bind(this)).sort((a, b) => b.net - a.net);
     }
   }
 })

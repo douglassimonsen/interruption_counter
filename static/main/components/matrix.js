@@ -1,31 +1,29 @@
-const COLORS = {
-  same: 808080
-}
-
 Vue.component('matrix', {
   props: ['participants', 'interruptions'],
   template: `
-    <table>
+    <table class="top-list">
       <thead>
         <tr>
-          <th></th>
+          <td></td>
           <th v-text="p" v-for="p in participants"></th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="p1, i in participants">
-          <td v-text="p1"></td>
-          <td v-for="p2, j in participants" @click="addInterrupt(i, j)" :style="{backgroundColor: getColor(i, j)}"></td>
+          <th v-text="p1"></th>
+          <td v-for="p2, j in participants" @click="addInterrupt(i, j)" :style="{backgroundColor: getColor(i, j)}" v-text="getCount(i, j)"></td>
         </tr>
       </tbody>
     </table>
   `,
-  watch: {
-    participants: function(){
-      //debugger;
-    }
-  },
   methods: {
+    getCount: function(i, j){
+      let from = this.participants[i];
+      let to = this.participants[j];
+      return this.interruptions.reduce(function(a, b){
+        return a + +(b.from === from && b.to === to);
+      }, 0) || null;
+    },
     addInterrupt: function(i, j){
       if(i === j){
         return;
@@ -38,8 +36,22 @@ Vue.component('matrix', {
     },
     getColor: function(i, j){
       if(i === j){
-        return COLORS.same;
+        return '#808080';
       }
+      let count = this.getCount(i, j) || 0;
+      if(count === 0){
+        return;
+      }
+      if(count < 2){
+        return '#ffffb7';
+      }
+      if(count < 4){
+        return '#fed8b1';
+      }
+      if(count < 6){
+        return '#ff4500';
+      }
+      return '#900D09';
     },
   },
 });

@@ -15,7 +15,7 @@ new Vue({
       this.newParticipant = null;
     },
     addInterruption: function(interrupt){
-      this.interruptions.push(interrupt);
+      this.interruptions.splice(0, 0, interrupt);
     }
   },
 });
