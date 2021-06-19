@@ -2,7 +2,7 @@ new Vue({
   el: '#page',
   data: function(){
     return {
-      participants: [],
+      participants: ['a', 'b'],
       newParticipant: null,
       interruptions: [],
     };
@@ -14,5 +14,8 @@ new Vue({
       this.participants.push(this.newParticipant);
       this.newParticipant = null;
     },
+    addInterruption: function(interrupt){
+      this.interruptions.push(interrupt);
+    }
   },
 });

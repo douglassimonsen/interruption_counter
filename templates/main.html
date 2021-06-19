@@ -4,15 +4,18 @@
 
     <script defer src="{{url_for('static', filename='dependencies/vue-2.6.14.js')}}"></script>
 
+    <script defer src="{{url_for('static', filename='main/utilities.js')}}"></script>
     <script defer src="{{url_for('static', filename='main/components/matrix.js')}}"></script>
     <script defer src="{{url_for('static', filename='main/components/topList.js')}}"></script>
+    <script defer src="{{url_for('static', filename='main/components/timeList.js')}}"></script>
     <script defer src="{{url_for('static', filename='main/page.js')}}"></script>
   </head>
   <body>
     <div id="page">
       <input v-model="newParticipant" v-on:keyup.enter="addParticipant">
-      <matrix :participants="participants" :interruptions="interruptions"></matrix>
+      <matrix :participants="participants" :interruptions="interruptions" @interruption="addInterruption"></matrix>
       <top-list :participants="participants" :interruptions="interruptions"></top-list>
+      <time-list :interruptions="interruptions"></time-list>
     </div>
   </body>
 </html>

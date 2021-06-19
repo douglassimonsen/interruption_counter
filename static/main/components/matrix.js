@@ -30,7 +30,11 @@ Vue.component('matrix', {
       if(i === j){
         return;
       }
-      debugger;
+      this.$emit('interruption', {
+        from: this.participants[i], 
+        to: this.participants[j],
+        time: strftime(new Date()),
+      });
     },
     getColor: function(i, j){
       if(i === j){

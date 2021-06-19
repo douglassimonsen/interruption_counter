@@ -23,8 +23,8 @@ Vue.component('top-list', {
   computed: {
     participantStats: function(){
       return this.participants.map(function(x){
-        let interrupted = this.interruptions.reduce((a, b) => a + b.from === x, 0);
-        let interruptions = this.interruptions.reduce((a, b) => a + b.to === x, 0);
+        let interrupted = this.interruptions.reduce((a, b) => a + (b.from === x), 0);
+        let interruptions = this.interruptions.reduce((a, b) => a + (b.to === x), 0);
         return {
           name: x,
           interruptions: interruptions,
