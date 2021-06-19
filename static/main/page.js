@@ -2,7 +2,7 @@ new Vue({
   el: '#page',
   data: function(){
     return {
-      participants: ['a', 'b'],
+      participants: [],
       newParticipant: null,
       interruptions: [],
     };
