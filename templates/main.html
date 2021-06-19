@@ -12,7 +12,11 @@
   </head>
   <body>
     <div id="page">
-      <input v-model="newParticipant" v-on:keyup.enter="addParticipant">
+      <div style="background-color: #cceae4;width:fit-content; padding:10px;border-radius: 5px;">
+        <div>Add another Person:</div>
+        <input v-model="newParticipant" v-on:keyup.enter="addParticipant">
+        <button @click="addParticipant">Add</button>
+      </div>
       <matrix :participants="participants" :interruptions="interruptions" @interruption="addInterruption"></matrix>
       <top-list :participants="participants" :interruptions="interruptions" style="position: absolute;top: 40px;right: 40px;"></top-list>
       <time-list :interruptions="interruptions" style="position: absolute;bottom: 40px;right: 40px;"></time-list>
