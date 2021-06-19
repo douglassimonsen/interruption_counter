@@ -4,12 +4,17 @@ Vue.component('matrix', {
     <table class="top-list">
       <thead>
         <tr>
-          <td></td>
+          <td colspan=2></td>
+          <th :colspan="participants.length">Being Interrupted</th>
+        </tr>
+        <tr>
+          <td colspan=2></td>
           <th v-text="p" v-for="p in participants"></th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="p1, i in participants">
+          <th :rowspan="participants.length" v-if="i === 0" style="max-width:5px"><div style="transform:translate(-40px, 8px) rotate(270deg); width:fit-content;">Interrupting</div></th>
           <th v-text="p1"></th>
           <td v-for="p2, j in participants" @click="addInterrupt(i, j)" :style="{backgroundColor: getColor(i, j)}" v-text="getCount(i, j)"></td>
         </tr>
