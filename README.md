@@ -2,6 +2,7 @@
 
 Sometimes you notice that meetings get rambuncious. As folks get excited, sometimes quieter voices get cut off. Oftentimes, the people doing the cutting off don't even recognize what they're doing. The goal of this tool is to log these interruptions, so that by the end of a meeting, people can look and see if they've been a good team player or not. 
 
+[[docs/full_site.png]]
 
 ## Basic Use
 1. Run `python main.py` to run the flask server. It'll run on `127.0.0.1:5000`
