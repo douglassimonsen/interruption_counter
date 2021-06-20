@@ -18,6 +18,14 @@
         <div>Add another Person:</div>
         <input v-model="newParticipant" v-on:keyup.enter="addParticipant">
         <button @click="addParticipant">Add</button>
+        <button @click="saveList">Save Current List</button>
+        <br/>
+        <label for="savedLists">Choose a Saved List</label>
+        <select name="savedLists" v-model="selectedList">
+          <option v-for="l, i in savedLists" v-text="l.join('\n')" :value="i"></option>
+        </select>
+        <button @click="loadList">Load</button>
+        <button @click="deleteList">Delete</button>
       </div>
       <matrix :participants="participants" :interruptions="interruptions" @interruption="addInterruption" @remove="remove"></matrix>
       <top-list :participants="participants" :interruptions="interruptions" style="position: absolute;top: 40px;right: 40px;"></top-list>
