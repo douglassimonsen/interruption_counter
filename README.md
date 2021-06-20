@@ -2,8 +2,6 @@
 
 Sometimes you notice that meetings get rambuncious. As folks get excited, sometimes quieter voices get cut off. Oftentimes, the people doing the cutting off don't even recognize what they're doing. The goal of this tool is to log these interruptions, so that by the end of a meeting, people can look and see if they've been a good team player or not. 
 
-[[docs/full_site.png]]
-
 ## Basic Use
 1. Run `python main.py` to run the flask server. It'll run on `127.0.0.1:5000`
 2. To add individuals to the meeting, type each name into the textbox below "add another Person". Press Enter or click "Add" to add the individual to the matrix.
@@ -16,3 +14,8 @@ Sometimes you notice that meetings get rambuncious. As folks get excited, someti
   1. As interruptions come in, two other areas will populate.
   2. In the interruptions scoreboard, people will be sorted by  `(interruptions) - (being interrupted)`.
   3. In the Past Interruptions, you'll get timestamped events for each interruption
+
+![Interruption Matrix](https://github.com/douglassimonsen/interruption_counter/blob/main/docs/interruption_matrix.PNG)
+![Interruption Scoreboard](https://github.com/douglassimonsen/interruption_counter/blob/main/docs/interruption_scoreboard.PNG)
+![Past Interruptions](https://github.com/douglassimonsen/interruption_counter/blob/main/docs/past_interruptions.PNG)
+![Name Entry](https://github.com/douglassimonsen/interruption_counter/blob/main/docs/name_entry.PNG)
