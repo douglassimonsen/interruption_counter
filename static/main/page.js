@@ -2,7 +2,7 @@ new Vue({
   el: '#page',
   data: function(){
     return {
-      participants: [],
+      participants: ['a', 'b'],
       newParticipant: null,
       interruptions: [],
     };
@@ -16,6 +16,10 @@ new Vue({
     },
     addInterruption: function(interrupt){
       this.interruptions.splice(0, 0, interrupt);
+    },
+    remove: function(removal){
+      this.participants = this.participants.filter(x => x !== removal.participant);
+      this.interruptions = this.interruptions.filter(x => x.to !== removal.participant && x.from !== removal.participant);
     }
   },
 });

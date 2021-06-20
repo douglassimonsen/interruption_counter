@@ -15,7 +15,7 @@ Vue.component('matrix', {
         </tr>
         <tr>
           <td colspan=2></td>
-          <th v-text="p" v-for="p, i in participants" style="max-width:60px;" :style="getHeaderStyle(null, i)"></th>
+          <th v-for="p, i in participants" style="max-width:60px;position:relative"><div v-text="p" :style="getHeaderStyle(null, i)"></div><div class="x-button" @click="deleteParticipant(i)">x</div></th>
         </tr>
       </thead>
       <tbody>
@@ -57,6 +57,11 @@ Vue.component('matrix', {
         from: this.participants[i], 
         to: this.participants[j],
         time: strftime(new Date()),
+      });
+    },
+    deleteParticipant: function(i){
+      this.$emit('remove', {
+        participant: this.participants[i],
       });
     },
     getColor: function(i, j){

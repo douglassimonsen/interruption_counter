@@ -35,13 +35,26 @@
     text-align: center;
 }
 .top-list tbody tr {
-  border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
 }
 
 .top-list tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+    background-color: #f3f3f3;
 }
 
 .top-list tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #009879;
+}
+.x-button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: rgb(204, 234, 228);
+    color: rgb(0, 0, 0);
+    padding: 1px 2px 2px 4px;
+    border-radius: 0px 0px 0px 4px;
+    cursor: pointer;
+}
+.x-button:hover {
+  background-color: #66c1ae;
 }
