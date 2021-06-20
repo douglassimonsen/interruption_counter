@@ -19,6 +19,13 @@ new Vue({
     addInterruption: function(interrupt){
       this.interruptions.splice(0, 0, interrupt);
     },
+    removeinterruption: function(interrupt){
+      let index = this.interruptions.findIndex(x => x.from === interrupt.from && x.to === interrupt.to);
+      if(index === -1){
+        return;
+      }
+      this.interruptions.splice(index, 1);
+    },
     remove: function(removal){
       this.participants = this.participants.filter(x => x !== removal.participant);
       this.interruptions = this.interruptions.filter(x => x.to !== removal.participant && x.from !== removal.participant);

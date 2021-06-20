@@ -27,7 +27,7 @@
         <button @click="loadList">Load</button>
         <button @click="deleteList">Delete</button>
       </div>
-      <matrix :participants="participants" :interruptions="interruptions" @interruption="addInterruption" @remove="remove"></matrix>
+      <matrix :participants="participants" :interruptions="interruptions" @interruption="addInterruption" @remove="remove" @removeinterruption="removeinterruption"></matrix>
       <top-list :participants="participants" :interruptions="interruptions" style="position: absolute;top: 40px;right: 40px;"></top-list>
       <time-list :interruptions="interruptions" style="position: absolute;bottom: 40px;right: 40px;"></time-list>
     </div>

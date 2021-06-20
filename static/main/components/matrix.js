@@ -22,7 +22,7 @@ Vue.component('matrix', {
         <tr v-for="p1, i in participants">
           <th :rowspan="participants.length" v-if="i === 0" style="max-width:5px;overflow:hidden"><div style="transform:translate(-40px, 8px) rotate(270deg); width:fit-content;">Interrupting</div></th>
           <th v-text="p1" style="max-width:60px;" :style="getHeaderStyle(i, null)"></th>
-          <td v-for="p2, j in participants" @click="addInterrupt(i, j)" :style="{backgroundColor: getColor(i, j)}" v-text="getCount(i, j)" @mouseover="mousein(i, j)" @mouseout="mouseout(i, j)"></td>
+          <td v-for="p2, j in participants" @click="addInterrupt(i, j)" @contextmenu.prevent="removeInterrupt(i, j)" :style="{backgroundColor: getColor(i, j)}" v-text="getCount(i, j)" @mouseover="mousein(i, j)" @mouseout="mouseout(i, j)"></td>
         </tr>
       </tbody>
     </table>
@@ -57,6 +57,12 @@ Vue.component('matrix', {
         from: this.participants[i], 
         to: this.participants[j],
         time: strftime(new Date()),
+      });
+    },
+    removeInterrupt: function(i, j){
+      this.$emit('removeinterruption', {
+        from: this.participants[i],
+        to: this.participants[j],
       });
     },
     deleteParticipant: function(i){
