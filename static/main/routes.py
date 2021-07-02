@@ -1,7 +1,7 @@
-from app import app
 import flask
+main_routes = flask.Blueprint('main_routes', __name__)
 
 
-@app.route('/')
+@main_routes.route('/')
 def main():
     return flask.render_template('main.html')
